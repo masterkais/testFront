@@ -56,8 +56,8 @@ export class EditUserComponent implements OnInit {
         "/" +
         user.dateNaissanced[2];
       this.date = new Date(ss);
-      this.selectedOptions.permessions = user.groupIds;
-      this.ids = user.groupIds;
+      this.selectedOptions.permessions = user.groups;
+      this.ids = user.groups;
     });
     this.userFormGroup = this.formBuilder.group({
       firstName: ["", Validators.required],
@@ -94,7 +94,7 @@ export class EditUserComponent implements OnInit {
   }
 
   removeGroup(group: Group): void {
-    this.user.groupIds = this.user.groupIds.filter(({ id }) => id !== group.id);
+    this.user.groups = this.user.groups.filter(({ id }) => id !== group.id);
     this.ids = this.ids.filter(({ id }) => id !== group.id);
   }
   onUpdateUser() {
@@ -116,7 +116,7 @@ export class EditUserComponent implements OnInit {
       city: this.userFormGroup.value.city,
       picture: null,
       active: true,
-      groupIds: this.ids,
+      groups: this.ids,
     };
     let isValid: boolean;
           this.userService.editUser(data).subscribe(() => {

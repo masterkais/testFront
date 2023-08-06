@@ -91,7 +91,7 @@ export class AddUserComponent implements OnInit {
       city: this.userFormGroup.value.city,
       picture: null,
       active: true,
-      groupIds: this.ids,
+      groups: this.ids,
     };
     this.userService.saveUser(data).subscribe(() => {
       this.toast.success({detail:"Ajout avec succée !",duration:5000});

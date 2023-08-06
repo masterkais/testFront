@@ -12,7 +12,7 @@ export interface User {
   active: boolean;
   dateNaissanced: any;
   dateCreated: Date;
-  groupIds: any[];
+  groups: any[];
   login: string;
   password: string;
 }
